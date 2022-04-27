@@ -3,27 +3,25 @@ package com.packg;
 import java.util.Scanner;
 
 public class MatrizOperations 
-{
-	Scan scan = new Scan();
-	
+{	
 	//escanenado e mostrando valores da matriz 1---------------------------------
 	public void scanShowMatrix1()
 	{
 		Scanner readerM1 = new Scanner(System.in);
-		for (int i = 0; i < scan.getA(); i++)
+		for (int i = 0; i < Main.A; i++)
 		{
-			for (int j = 0; j < scan.getB(); j++)
+			for (int j = 0; j < Main.B; j++)
 			{
 				System.out.print("[" + (i+1) + "]" + "[" + (j+1) + "] = " );
-				scan.getMatrix1()[i][j] = readerM1.nextInt();
+				Main.matrix1[i][j] = readerM1.nextInt();
 			}
 		}
 		System.out.print("A matriz 1 é: \n");
-		for (int i = 0; i < scan.getA(); i++)
+		for (int i = 0; i < Main.A; i++)
 		{
-			for (int j = 0; j < scan.getB(); j++)
+			for (int j = 0; j < Main.B; j++)
 			{
-				System.out.print("[" + scan.getMatrix1()[i][j] + "]");
+				System.out.print("[" + Main.matrix1[i][j] + "]");
 			}
 			System.out.print("\n");
 		}
@@ -35,20 +33,20 @@ public class MatrizOperations
 	public void scanShowMatrix2()
 	{
 		Scanner readerM2 = new Scanner(System.in);
-		for (int i = 0; i < scan.getC(); i++)
+		for (int i = 0; i < Main.C; i++)
 		{
-			for (int j = 0; j < scan.getD(); j++)
+			for (int j = 0; j < Main.D; j++)
 			{
 				System.out.print("[" + (i+1) + "]" + "[" + (j+1) + "] = " );
-				scan.getMatrix2()[i][j] = readerM2.nextInt();
+				Main.matrix2[i][j] = readerM2.nextInt();
 			}
 		}
 		System.out.print("A matriz 2 é: \n");
-		for (int i = 0; i < scan.getC(); i++)
+		for (int i = 0; i < Main.C; i++)
 		{
-			for (int j = 0; j < scan.getD(); j++)
+			for (int j = 0; j < Main.D; j++)
 			{
-				System.out.print("[" + scan.getMatrix2()[i][j] + "]");
+				System.out.print("[" + Main.matrix2[i][j] + "]");
 			}
 			System.out.print("\n");
 		}
@@ -59,16 +57,16 @@ public class MatrizOperations
 	//verifica se a matriz 1 é quadrada e só então mostra as diagonais------------
 	public void diagonalM1()
 	{
-		if(scan.getA() == scan.getB())
+		if(Main.A == Main.B)
 		{
 			System.out.print("A diagonal principal da matriz 1 é: \n");
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getB(); j++)
+				for (int j = 0; j < Main.B; j++)
 				{
 					if (i == j)
 					{
-						System.out.print("[" + scan.getMatrix1()[i][j] + "]");
+						System.out.print("[" + Main.matrix1[i][j] + "]");
 					}
 					else
 					{
@@ -80,13 +78,13 @@ public class MatrizOperations
 			System.out.print("-------------------------------------------\n");
 			
 			System.out.print("A diagonal secundaria da matriz 1 é: \n");
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getB(); j++)
+				for (int j = 0; j < Main.B; j++)
 				{
-					if (i == scan.getB() - 1 - j)
+					if (i == Main.B - 1 - j)
 					{
-						System.out.print("[" + scan.getMatrix1()[i][j] + "]");
+						System.out.print("[" + Main.matrix1[i][j] + "]");
 					}
 					else
 					{
@@ -107,16 +105,16 @@ public class MatrizOperations
 	//verifica se a matriz 2 é quadrada e só então mostra as diagonais------------
 	public void diagonalM2()
 	{
-		if(scan.getC() == scan.getD())
+		if(Main.C == Main.D)
 		{
 			System.out.print("A diagonal principal da matriz 2 é: \n");
-			for (int i = 0; i < scan.getC(); i++)
+			for (int i = 0; i < Main.C; i++)
 			{
-				for (int j = 0; j < scan.getD(); j++)
+				for (int j = 0; j < Main.D; j++)
 				{
 					if (i == j)
 					{
-						System.out.print("[" + scan.getMatrix2()[i][j] + "]");
+						System.out.print("[" + Main.matrix2[i][j] + "]");
 					}
 					else
 					{
@@ -128,13 +126,13 @@ public class MatrizOperations
 			System.out.print("-------------------------------------------\n");
 			
 			System.out.print("A diagonal secundaria da matriz 2 é: \n");
-			for (int i = 0; i < scan.getC(); i++)
+			for (int i = 0; i < Main.C; i++)
 			{
-				for (int j = 0; j < scan.getD(); j++)
+				for (int j = 0; j < Main.D; j++)
 				{
-					if (i == scan.getD() - 1 - j)
+					if (i == Main.D - 1 - j)
 					{
-						System.out.print("[" + scan.getMatrix2()[i][j] + "]");
+						System.out.print("[" + Main.matrix2[i][j] + "]");
 					}
 					else
 					{
@@ -156,18 +154,18 @@ public class MatrizOperations
 	public void matrix1Transposed()
 	{
 		int matrixtransposed1[][];
-		matrixtransposed1 = new int[scan.getB()][scan.getA()];
+		matrixtransposed1 = new int[Main.B][Main.A];
 		System.out.print("A matriz 1 transposta é: \n");
-		for (int i = 0; i < scan.getB(); i++)
+		for (int i = 0; i < Main.B; i++)
 		{
-			for (int j = 0; j < scan.getA(); j++)
+			for (int j = 0; j < Main.A; j++)
 			{
-				matrixtransposed1[i][j] = scan.getMatrix1()[j][i];
+				matrixtransposed1[i][j] = Main.matrix1[j][i];
 			}
 		}
-		for (int i = 0; i < scan.getB(); i++)
+		for (int i = 0; i < Main.B; i++)
 		{
-			for (int j = 0; j < scan.getA(); j++)
+			for (int j = 0; j < Main.A; j++)
 			{
 				System.out.print("[" + matrixtransposed1[i][j] + "]");
 			}
@@ -180,18 +178,18 @@ public class MatrizOperations
 	public void matrix2Transposed()
 	{
 		int matrixtransposed2[][];
-		matrixtransposed2 = new int[scan.getD()][scan.getC()];
+		matrixtransposed2 = new int[Main.D][Main.C];
 		System.out.print("A matriz 2 transposta é: \n");
-		for (int i = 0; i < scan.getD(); i++)
+		for (int i = 0; i < Main.D; i++)
 		{
-			for (int j = 0; j < scan.getC(); j++)
+			for (int j = 0; j < Main.C; j++)
 			{
-				matrixtransposed2[i][j] = scan.getMatrix2()[j][i];
+				matrixtransposed2[i][j] = Main.matrix2[j][i];
 			}
 		}
-		for (int i = 0; i < scan.getD(); i++)
+		for (int i = 0; i < Main.D; i++)
 		{
-			for (int j = 0; j < scan.getC(); j++)
+			for (int j = 0; j < Main.C; j++)
 			{
 				System.out.print("[" + matrixtransposed2[i][j] + "]");
 			}
@@ -203,22 +201,22 @@ public class MatrizOperations
 	//soma de matrizes-------------------------------------------------------------
 	public void sumMatrices()
 	{
-		if(scan.getA() == scan.getC() && scan.getB() == scan.getD())
+		if(Main.A == Main.C && Main.B == Main.D)
 		{
 			int matrixsum[][];
-			matrixsum = new int[scan.getA()][scan.getB()];
+			matrixsum = new int[Main.A][Main.B];
 			
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getB(); j++)
+				for (int j = 0; j < Main.B; j++)
 				{
-					matrixsum[i][j] = scan.getMatrix1()[i][j] + scan.getMatrix2()[i][j];
+					matrixsum[i][j] = Main.matrix1[i][j] + Main.matrix2[i][j];
 				}
 			}
 			System.out.print("A soma de matrizes é:\n");
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getB(); j++)
+				for (int j = 0; j < Main.B; j++)
 				{
 					System.out.print("[" + matrixsum[i][j] + "]");
 				}
@@ -235,25 +233,25 @@ public class MatrizOperations
 	//multiplicação de matrizes----------------------------------------------------
 	public void multiplicationMatrices()  //lógica confusa.
 	{
-		if(scan.getB() == scan.getC())
+		if(Main.B == Main.C)
 		{
 			int matrixmult[][];
-			matrixmult = new int[scan.getA()][scan.getD()];
+			matrixmult = new int[Main.A][Main.D];
 			
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getD(); j++)
+				for (int j = 0; j < Main.D; j++)
 				{
-					for (int k = 0; k < scan.getB(); k++)
+					for (int k = 0; k < Main.B; k++)
 					{
-						matrixmult[i][j] += scan.getMatrix1()[i][k] * scan.getMatrix2()[k][j];
+						matrixmult[i][j] += Main.matrix1[i][k] * Main.matrix2[k][j];
 					}
 				}
 			}
 			System.out.print("A multiplicação de matrizes é:\n");
-			for (int i = 0; i < scan.getA(); i++)
+			for (int i = 0; i < Main.A; i++)
 			{
-				for (int j = 0; j < scan.getD(); j++)
+				for (int j = 0; j < Main.D; j++)
 				{
 					System.out.print("[" + matrixmult[i][j] + "]");
 				}

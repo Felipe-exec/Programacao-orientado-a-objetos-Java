@@ -1,18 +1,38 @@
 package com.packg;
 
+import java.util.Scanner;
+
 public class Main 
 {
-
+	public static int A = 0;
+	public static int B = 0;
+	public static int C = 0;
+	public static int D = 0;
+	public static int matrix1[][];
+	public static int matrix2[][];
+	
 	public static void main(String[] args) 
 	{
-		Scan scan = new Scan();
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Digite o valor da linha da Matriz 1: ");
+		A = reader.nextInt();
+		System.out.print("Digite o valor da coluna da Matriz 1: ");
+		B = reader.nextInt();
+		System.out.print("Digite o valor da linha da Matriz 2: ");
+		C = reader.nextInt();
+		System.out.print("Digite o valor da coluna da Matriz 2: ");
+		D = reader.nextInt();
+		
+		matrix1 = new int[A][B];
+		matrix2 = new int[C][D];
+
 		MatrizOperations Mop = new MatrizOperations();
 		
-		scan.scanValues();
+
 		System.out.print("As matrizes foram setadas.\n");
 		System.out.print("Observação: seguir o exemplo [linha][coluna]\n");
-		System.out.println("Matriz 1 = [" + scan.getA() + "]" + "[" + scan.getB() + "]");
-		System.out.println("Matriz 2 = [" + scan.getC() + "]" + "[" + scan.getD() + "]");
+		System.out.println("Matriz 1 = [" + A + "]" + "[" + B + "]");
+		System.out.println("Matriz 2 = [" + C + "]" + "[" + D + "]");
 		System.out.print("\n");
 		System.out.println("Vamos escanear os valores das matrizes 1 e 2:");
 		Mop.scanShowMatrix1();
