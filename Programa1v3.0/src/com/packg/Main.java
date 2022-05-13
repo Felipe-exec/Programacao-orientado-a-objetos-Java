@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main 
 {
 	public static int answer;
-	public static double vetorvalues[];
+	public static double vetorValues[];
 	
 	public static void main(String[] args) 
 	{
@@ -18,7 +18,7 @@ public class Main
 		answer = reader.nextInt();  
 		
 		
-		vetorvalues = new double[answer]; 
+		vetorValues = new double[answer]; 
 		
 		
 		Scanner readerofvalues = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Main
 		{
 			System.out.println("Digite o numero " + (i + 1) + ":");
 			val = readerofvalues.nextInt();
-			vetorvalues[i] = val;
+			vetorValues[i] = val;
 		}
 		
 		reader.close();
@@ -35,7 +35,7 @@ public class Main
 		
 		System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
 		System.out.print("Os numeros escolhidos foram: ");
-		System.out.print(Arrays.toString(vetorvalues) + "\n");
+		System.out.print(Arrays.toString(vetorValues) + "\n");
 		System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
 		
 		
@@ -51,11 +51,24 @@ public class Main
 		System.out.println("-=-=-=-=-=-=");
 		
 
-		System.out.println("A media aritmetica desses numeros: " + avg.average());
-		System.out.println("A media geometrica desses numeros: " + avggeo.averagegeo());
-		System.out.print("Numeros pares: ");
-		even.evenNumbers();
+		System.out.println("A media aritmetica desses numeros: " + avg.average(answer, vetorValues));
+		System.out.println("A media geometrica desses numeros: " + avggeo.averagegeo(answer, vetorValues));
+		
+		
+		System.out.print("Numeros pares: " );
+		double vetorValuesEven[] = even.evenNumbers(answer, vetorValues);
+		for (int i = 0; i < vetorValuesEven.length; i++)
+		{
+			System.out.print("[" + vetorValuesEven[i] + "]");
+		}
+		
+		System.out.println();
+		
 		System.out.print("Numeros impares: ");
-		odd.oddNumbers();
+		double vetorValuesOdd[] = odd.oddNumbers(answer, vetorValues);
+		for (int i = 0; i < vetorValuesOdd.length; i++)
+		{
+			System.out.print("[" + vetorValuesOdd[i] + "]");
+		}
 	}
 }
